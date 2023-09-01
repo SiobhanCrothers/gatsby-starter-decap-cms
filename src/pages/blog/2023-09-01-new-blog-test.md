@@ -8,4 +8,6 @@ featuredimage: /img/jumbotron.jpg
 tags:
   - appear
 ---
-T﻿he key to a good blog post is for it actually to appear where you want it
+T﻿he key to a good blog post is for it actually to appear where you want it. Just look at this:
+![jumbotron](/img/jumbotron.jpg)
+A﻿mazing!
