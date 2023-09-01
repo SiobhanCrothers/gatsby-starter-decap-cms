@@ -1,0 +1,3 @@
+## Webhook email service
+
+This tutorial will guide you through how you can extend Bravura Cloud with your own notification systems. Its intended to introduce how webhook notifications can be easily leveraged to accomplish a common task like sending emails. Adopters of Bravura Cloud are encouraged to build upon this example with other service they may need. For example, pushing data into a SIEM system. Alerting people to changes in sensitive groups. Alerting to out of bounds changes. 
