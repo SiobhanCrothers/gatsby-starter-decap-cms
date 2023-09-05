@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React, { useState, useRef, useEffect } from "react";
 import Layout from "../../components/Layout";
 import "./accordion-styles.css";
 
