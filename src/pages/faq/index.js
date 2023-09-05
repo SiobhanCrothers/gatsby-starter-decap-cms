@@ -59,6 +59,9 @@ export default function Faq({ data }) {
 export const query = graphql`
   query FaqPage {
     allMarkdownRemark {
+      sort: { order: DESC, fields: [frontmatter___date] }
+            filter: { frontmatter: { templateKey: { eq: "faq" } } }
+	  } {
       nodes {
         frontmatter {
           title
