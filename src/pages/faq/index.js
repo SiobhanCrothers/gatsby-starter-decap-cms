@@ -58,10 +58,10 @@ export default function Faq({ data }) {
 // Export page query
 export const query = graphql`
   query FaqPage {
-    allMarkdownRemark {
+    allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-            filter: { frontmatter: { templateKey: { eq: "faq" } } }
-	  } {
+      filter: { frontmatter: { templateKey: { eq: "faq" } } }
+    ) {
       nodes {
         frontmatter {
           title
