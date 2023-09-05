@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 
-import App from "./Accordion";
+import Accordion from "./Accordion";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Accordion />
   </StrictMode>,
   rootElement
 );
