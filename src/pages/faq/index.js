@@ -55,6 +55,7 @@ export default function App({ data }) {
         nodes {
 	  frontmatter {
 	    title
+	    description
 	  }
 	}
       }
