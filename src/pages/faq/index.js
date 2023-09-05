@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./accordion-styles.css";
-import { FiPlus } from "react-icons/fi";
 
 export default function App() {
   const [active, setActive] = useState(false);
@@ -29,9 +28,6 @@ export default function App() {
                 <h4 className="question-style">
                   Why do you like web developemnt
                 </h4>
-                <FiPlus
-                  className={active ? `question-icon rotate` : `question-icon`}
-                />
               </div>
               <div
                 ref={contentRef}
