@@ -1,45 +1,75 @@
+import { graphql } from 'gatsby'
 import React, { useState, useRef, useEffect } from "react";
 import Layout from "../../components/Layout";
 import "./accordion-styles.css";
 
-export default function App() {
-  const [active, setActive] = useState(false);
+export default function Faq({ data }) {
 
-  const contentRef = useRef(null);
+  const faq = data.allMarkdownRemark.nodes;
+
+  // Maintain separate state and ref for each FAQ item
+  const [activeItems, setActiveItems] = useState(Array(faq.length).fill(false));
+  const contentRefs = faq.map(() => useRef(null));
 
   useEffect(() => {
-    contentRef.current.style.maxHeight = active
-      ? `${contentRef.current.scrollHeight}px`
-      : "0px";
-  }, [contentRef, active]);
+    // Update max height for each FAQ item based on its active state
+    contentRefs.forEach((ref, index) => {
+      ref.current.style.maxHeight = activeItems[index]
+        ? `${ref.current.scrollHeight}px`
+        : "0px";
+    });
+  }, [contentRefs, activeItems]);
 
-  const toggleAccordion = () => {
-    setActive(!active);
+  const toggleAccordion = (index) => {
+    const newActiveItems = [...activeItems];
+    newActiveItems[index] = !newActiveItems[index];
+    setActiveItems(newActiveItems);
   };
+
   return (
     <Layout>
-      <div className="App">
+      <div className="Faq">
         <div>
-          <button
-            className={`question-section ${active}`}
-            onClick={toggleAccordion}
-          >
-            <div>
-              <div className="question-align">
+          {faq.map((question, index) => (
+            <button
+              key={question.id}
+              className={`question-section ${activeItems[index] ? 'active' : ''}`}
+              onClick={() => toggleAccordion(index)}
+            >
+              <div className="question-align">	  
                 <h4 className="question-style">
-                  Why do you like web development
+                  {question.frontmatter.title}
                 </h4>
               </div>
               <div
-                ref={contentRef}
-                className={active ? `answer answer-divider` : `answer`}
+                ref={contentRefs[index]}
+                className={activeItems[index] ? `answer answer-divider` : `answer`}
               >
-                <p>Because I love coding</p>
+                <p>{question.frontmatter.description}</p>
               </div>
-            </div>
-          </button>
+            </button>
+          ))}
         </div>
       </div>
     </Layout>
   );
 }
+
+// Export page query
+export const query = graphql`
+  query FaqPage {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          title
+          description
+        }
+        id
+      }
+    }
+  }
+`;
+
+
+
+
