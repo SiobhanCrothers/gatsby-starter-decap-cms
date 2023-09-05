@@ -26,7 +26,7 @@ export default function App() {
             <div>
               <div className="question-align">
                 <h4 className="question-style">
-                  Why do you like web developemnt
+                  Why do you like web development
                 </h4>
               </div>
               <div
