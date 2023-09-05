@@ -5,7 +5,7 @@ import "./accordion-styles.css";
 
 export default function Faq({ data }) {
 
-  const faq = data.allMarkdownRemark.nodes
+  const faq = data.allMarkdownRemark.nodes;
 
   const [active, setActive] = useState(false);
 
