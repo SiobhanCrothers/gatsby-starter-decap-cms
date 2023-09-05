@@ -1,8 +1,12 @@
+import { graphql } from 'gatsby'
 import React, { useState, useRef, useEffect } from "react";
 import Layout from "../../components/Layout";
 import "./accordion-styles.css";
 
-export default function App() {
+export default function App({ data }) {
+  console.log(data)
+  const faq = data.allMarkdownRemark.nodes
+
   const [active, setActive] = useState(false);
 
   const contentRef = useRef(null);
@@ -25,16 +29,16 @@ export default function App() {
             onClick={toggleAccordion}
           >
             <div>
-              <div className="question-align">
+	  	<div className="question-align">
                 <h4 className="question-style">
-                  Why do you like web development
+	        { faq.frontmatter.title }
                 </h4>
               </div>
               <div
                 ref={contentRef}
                 className={active ? `answer answer-divider` : `answer`}
               >
-                <p>Because I love coding</p>
+                <p>{ faq.frontmatter.description }</p>
               </div>
             </div>
           </button>
@@ -43,3 +47,15 @@ export default function App() {
     </Layout>
   );
 }
+
+//export page query
+  export const query = graphql
+    query FAQPage {
+      allMarkdownRemark {
+        nodes {
+	  frontmatter {
+	    title
+	  }
+	}
+      }
+    }
