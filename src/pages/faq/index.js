@@ -17,7 +17,7 @@ export default function App() {
     setActive(!active);
   };
   return (
-    <>
+    <Layout>
       <div className="App">
         <div>
           <button
@@ -40,6 +40,6 @@ export default function App() {
           </button>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
