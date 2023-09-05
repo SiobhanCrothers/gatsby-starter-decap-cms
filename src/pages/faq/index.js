@@ -3,8 +3,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Layout from "../../components/Layout";
 import "./accordion-styles.css";
 
-export default function App({ data }) {
-  console.log(data)
+export default function Faq({ data }) {
+
   const faq = data.allMarkdownRemark.nodes
 
   const [active, setActive] = useState(false);
@@ -22,24 +22,26 @@ export default function App({ data }) {
   };
   return (
     <Layout>
-      <div className="App">
+      <div className="Faq">
         <div>
           <button
             className={`question-section ${active}`}
             onClick={toggleAccordion}
           >
             <div>
-	  	<div className="question-align">
+	      {faq.map(question => (
+	      <div className="question-align">	  
                 <h4 className="question-style">
-	        { faq.frontmatter.title }
+	        { question.frontmatter.title }
                 </h4>
               </div>
               <div
                 ref={contentRef}
                 className={active ? `answer answer-divider` : `answer`}
               >
-                <p>{ faq.frontmatter.description }</p>
+                <p>{ question.frontmatter.description }</p>
               </div>
+	      ))}
             </div>
           </button>
         </div>
@@ -50,13 +52,14 @@ export default function App({ data }) {
 
 //export page query
   export const query = graphql
-    query FAQPage {
+    query FaqPage {
       allMarkdownRemark {
         nodes {
 	  frontmatter {
 	    title
 	    description
 	  }
+	  id
 	}
       }
     }
