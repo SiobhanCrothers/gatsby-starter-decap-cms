@@ -13,7 +13,7 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent, faqData 
     <Layout>
       <div className="Faq">
         <div>
-          {faq.map((question, index) => (
+          {faqData.map((question, index) => (
 	    <FaqQuestionPreview
               key={question.id}
               title={`${index + 1}. ${question.frontmatter.title}`}
