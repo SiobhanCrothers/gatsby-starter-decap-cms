@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import "../pages/faq/accordion-styles.css";
+import FaqQuestionPreview from "../cms/preview-templates/FaqQuestionPreview.js"
 
 // eslint-disable-next-line
 export const FaqQuestionTemplate = ({ title, content, contentComponent, faqData }) => {
