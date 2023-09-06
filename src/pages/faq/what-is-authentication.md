@@ -1,5 +1,5 @@
 ---
-templateKey: faq
+templateKey: faq-question
 title: What is Authentication?
 date: 2023-09-06T18:59:29.067Z
 tags:

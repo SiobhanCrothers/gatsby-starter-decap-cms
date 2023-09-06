@@ -1,5 +1,5 @@
 ---
-templateKey: faq
+templateKey: faq-question
 title: What are Security Tokens?
 date: 2023-09-01T21:04:00.682Z
 tags:

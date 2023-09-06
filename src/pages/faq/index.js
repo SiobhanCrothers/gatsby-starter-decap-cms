@@ -60,7 +60,7 @@ export const query = graphql`
   query FaqPage {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "faq" } } }
+      filter: { frontmatter: { templateKey: { eq: "faq-question" } } }
     ) {
       nodes {
         frontmatter {
