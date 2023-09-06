@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import FaqQuestionTemplate from '../../templates/faq-question'
+import React from 'react';
+import PropTypes from 'prop-types';
+import FaqQuestionTemplate from '../../templates/faq-question';
 
 const FaqQuestionPreview = ({ entry, widgetFor }) => {
   // Check if entry is defined
@@ -8,31 +8,26 @@ const FaqQuestionPreview = ({ entry, widgetFor }) => {
     return <div>No preview available</div>;
   }
 
-  // Check if data and title are defined
+  // Access data specific to your "faq" collection
   const data = entry.get('data');
   const title = data ? data.get('title') : null;
-
-  // Check if title is defined
-  if (!title) {
-    return <div>No title available</div>;
-  }
-
+  const body = data ? data.get('body') : null;
   const tags = data ? data.get('tags') : null;
 
   return (
     <FaqQuestionTemplate
       title={title}
-      content={widgetFor('body')}
+      content={body}
       tags={tags && tags.toJS()}
     />
-  )
-}
+  );
+};
 
 FaqQuestionPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
-}
+};
 
-export default FaqQuestionPreview
+export default FaqQuestionPreview;
