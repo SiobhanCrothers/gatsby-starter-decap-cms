@@ -4,52 +4,54 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import "../pages/faq/accordion-styles.css";
-import FaqQuestionPreview from "../cms/preview-templates/FaqQuestionPreview.js"
 
 // eslint-disable-next-line
-export const FaqQuestionTemplate = ({ title, content, contentComponent, faqData }) => {
+export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) => {
   const QuestionContent = contentComponent || Content;
 
   return (
-    <Layout>
-      <div className="Faq">
-        <div>
-          {faqData.map((question, index) => (
-	    <FaqQuestionPreview
-              key={question.id}
-              title={`${index + 1}. ${question.frontmatter.title}`}
-              content={question.html}
-            />
-          ))}
+    <section className="section section--gradient">
+      <div className="container">
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <div className="section">
+              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                {title}
+              </h2>
+              <PageContent className="content" content={content} />
+            </div>
+          </div>
         </div>
       </div>
-    </Layout>
+    </section>
   );
 };
 
 FaqQuestionTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
+  content: PropTypes.node.isrequired,
   contentComponent: PropTypes.func,
+  title: PropTypes.string,
 };
 
 const FaqQuestion = ({ data }) => {
-  const { markdownRemark: post, allMarkdownRemark: faqData } = data;
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
       <FaqQuestionTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
         content={post.html}
-	faqData={faqData.edges.map(edge => edge.node)}
+        contentComponent={HTMLContent}
+	tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
       />
     </Layout>
   );
 };
 
 FaqQuestion.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
 };
 
 export default FaqQuestion;
@@ -57,22 +59,12 @@ export default FaqQuestion;
 export const FaqQuery = graphql`
   query FaqQuestion($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      id
       html
       frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         title
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "faq-question" } } }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-          }
-          html
-        }
+	tags
       }
     }
   }
