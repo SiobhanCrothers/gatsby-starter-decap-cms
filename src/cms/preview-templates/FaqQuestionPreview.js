@@ -16,4 +16,4 @@ FaqQuestionPreview.propTypes = {
   widgetFor: PropTypes.func,
 }
 
-export default FaqQuestionPreview;
+export default FaqQuestionPreview
