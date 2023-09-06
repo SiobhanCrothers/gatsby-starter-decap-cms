@@ -65,7 +65,6 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
-          description
         }
         id
 	html
