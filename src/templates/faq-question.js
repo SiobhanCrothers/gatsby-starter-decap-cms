@@ -6,7 +6,7 @@ import Content, { HTMLContent } from "../components/Content";
 import "../pages/faq/accordion-styles.css";
 
 // eslint-disable-next-line
-export const FaqQuestionTemplate = ({ title, content, contentComponent }) => {
+export const FaqQuestionTemplate = ({ title, content, contentComponent, faqData }) => {
   const QuestionContent = contentComponent || Content;
 
   return (
@@ -17,7 +17,7 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent }) => {
 	    <FaqQuestionPreview
               key={question.id}
               title={`${index + 1}. ${question.frontmatter.title}`}
-              content={dangerouslySetInnerHTML={{ __html: question.html }}}
+              content={question.html}
             />
           ))}
         </div>
@@ -33,7 +33,7 @@ FaqQuestionTemplate.propTypes = {
 };
 
 const FaqQuestion = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post, allMarkdownRemark: faqData } = data;
 
   return (
     <Layout>
@@ -41,6 +41,7 @@ const FaqQuestion = ({ data }) => {
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
+	faqData={faqData.edges.map(edge => edge.node)}
       />
     </Layout>
   );
@@ -58,6 +59,19 @@ export const FaqQuery = graphql`
       html
       frontmatter {
         title
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "faq-question" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          html
+        }
       }
     }
   }
