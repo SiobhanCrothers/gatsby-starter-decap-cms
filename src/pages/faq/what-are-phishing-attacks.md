@@ -2,10 +2,11 @@
 templateKey: faq
 title: What are phishing attacks?
 date: 2023-09-01T21:04:00.682Z
-description: Phishing question
 tags:
   - question
 ---
+
+## What are phishing attacks?
 
 ### Phishing Attacks
 

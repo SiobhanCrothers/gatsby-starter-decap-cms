@@ -1,8 +1,7 @@
 ---
 templateKey: faq
-title: What are common access control medels?
+title: What are common access control models?
 date: 2023-09-01T21:04:00.682Z
-description: Access control question
 tags:
   - question
 ---

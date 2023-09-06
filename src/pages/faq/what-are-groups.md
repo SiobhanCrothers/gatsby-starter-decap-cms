@@ -2,12 +2,11 @@
 templateKey: faq
 title: What is a Group?
 date: 2023-09-01T21:04:00.682Z
-description: This is the group question
 tags:
   - question
 ---
 
-# What is a Group?
+## What is a Group?
 
 ### Definition
 A **group** in the context of information systems and security refers to a collection of users who share similar roles, responsibilities, or characteristics. Groups are often used to manage permissions and access rights for multiple users simultaneously, streamlining administrative tasks.

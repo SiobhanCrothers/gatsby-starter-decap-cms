@@ -2,7 +2,6 @@
 templateKey: faq
 title: What is a System?
 date: 2023-09-01T21:04:00.682Z
-description: System question
 tags:
   - question
 ---

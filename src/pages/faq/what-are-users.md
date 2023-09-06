@@ -2,10 +2,11 @@
 templateKey: faq
 title: What is a User?
 date: 2023-09-01T21:04:00.682Z
-description: User question
 tags:
   - question
 ---
+
+## What is a User?
 
 ### Definition
 A **user** in the context of information systems and security refers to an individual, entity, or process that interacts with a system to perform specific tasks or achieve a certain outcome. Users can be humans or automated processes.
