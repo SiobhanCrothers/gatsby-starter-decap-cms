@@ -1,3 +1,4 @@
+
 import { graphql } from 'gatsby'
 import React, { useState, useRef, useEffect } from "react";
 import Layout from "../../components/Layout";
@@ -45,7 +46,7 @@ export default function Faq({ data }) {
                 ref={contentRefs[index]}
                 className={activeItems[index] ? `answer answer-divider` : `answer`}
               >
-                <p>{question.frontmatter.description}</p>
+                <p>{question.body}</p>
               </div>
             </button>
           ))}
