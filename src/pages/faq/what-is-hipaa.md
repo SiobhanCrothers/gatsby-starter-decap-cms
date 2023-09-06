@@ -7,8 +7,6 @@ tags:
   - question
 ---
 
-## HIPAA
-
 ### What is HIPAA?
 
 **Health Insurance Portability and Accountability Act (HIPAA)** is a U.S. regulation established in 1996 to protect the privacy and security of certain health information. The regulation stipulates standards for the handling and protection of individually identifiable health information by certain entities, such as healthcare providers and insurance companies. 
