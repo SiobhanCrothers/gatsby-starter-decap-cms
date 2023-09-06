@@ -45,9 +45,8 @@ export default function Faq({ data }) {
               <div
                 ref={contentRefs[index]}
                 className={activeItems[index] ? `answer answer-divider` : `answer`}
-              >
-                <p>{question.body}</p>
-              </div>
+                dangerouslySetInnerHTML={{ __html: question.html }}
+              ></div>
             </button>
           ))}
         </div>
@@ -69,6 +68,7 @@ export const query = graphql`
           description
         }
         id
+	html
       }
     }
   }
