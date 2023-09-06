@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaqQuestionTemplate } from '../../templates/faq-question'
+import FaqQuestionTemplate from '../../templates/faq-question'
 
 const FaqQuestionPreview = ({ entry, widgetFor }) => {
   const tags = entry.getIn(['data', 'tags'])
