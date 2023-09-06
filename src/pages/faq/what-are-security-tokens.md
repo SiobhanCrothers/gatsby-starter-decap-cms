@@ -9,6 +9,7 @@ tags:
 ## What are Security Tokens? 
 
 ### Definition
+
 A **Security Token** is a physical or digital device or artifact used to authenticate a user, system, or application. It represents a claim about a subject, often proving the identity or permissions of the bearer. Security tokens can be hardware devices (like smart cards or USB tokens) or digital tokens (like JSON Web Tokens or SAML assertions).
 
 ### Types of Security Tokens
@@ -33,6 +34,4 @@ A **Security Token** is a physical or digital device or artifact used to authent
 - **Standardized Security:** Many token standards, like JWT or SAML, are widely adopted, promoting interoperability.
 - **Enhanced User Trust:** Users often perceive systems with token-based authentication as more secure, enhancing trust.
 - **Regulatory Compliance:** Certain regulations mandate the use of strong authentication methods, which security tokens can help fulfill.
-
----
 

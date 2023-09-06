@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import "../faq/accordion-styles.css";
 
 // eslint-disable-next-line
 export const FaqQuestionTemplate = ({ title, content, contentComponent }) => {

@@ -6,9 +6,9 @@ const FaqQuestionPreview = ({ entry, widgetFor }) => {
   const tags = entry.getIn(['data', 'tags'])
   return (
     <FaqQuestionTemplate
+      title={entry.getIn(['data', 'title'])}
       content={widgetFor('body')}
       tags={tags && tags.toJS()}
-      title={entry.getIn(['data', 'title'])}
     />
   )
 }
