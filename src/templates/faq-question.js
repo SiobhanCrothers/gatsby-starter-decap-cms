@@ -5,8 +5,8 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
 // eslint-disable-next-line
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content;
+export const FaqTemplate = ({ title, content, contentComponent }) => {
+  const QuestionContent = contentComponent || Content;
 
   return (
     <section className="section section--gradient">
@@ -17,7 +17,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
-              <PageContent className="content" content={content} />
+              <QuestionContent className="content" content={content} />
             </div>
           </div>
         </div>
@@ -26,18 +26,18 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   );
 };
 
-AboutPageTemplate.propTypes = {
+FaqQuestionTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 };
 
-const AboutPage = ({ data }) => {
+const FaqQuestion = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <AboutPageTemplate
+      <FaqQuestionTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
@@ -46,14 +46,14 @@ const AboutPage = ({ data }) => {
   );
 };
 
-AboutPage.propTypes = {
+FaqQuestion.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default AboutPage;
+export default FaqQuestion;
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const FaqQuery = graphql`
+  query FaqQuestion($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
