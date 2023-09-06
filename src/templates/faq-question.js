@@ -14,22 +14,11 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent }) => {
       <div className="Faq">
         <div>
           {faq.map((question, index) => (
-            <button
+	    <FaqQuestionPreview
               key={question.id}
-              className={`question-section ${activeItems[index] ? 'active' : ''}`}
-              onClick={() => toggleAccordion(index)}
-            >
-              <div className="question-align">
-                <h4 className="question-style">
-                  {`${index + 1}. ${question.frontmatter.title}`}
-                </h4>
-              </div>
-              <div
-                ref={contentRefs[index]}
-                className={activeItems[index] ? `answer answer-divider` : `answer`}
-                dangerouslySetInnerHTML={{ __html: question.html }}
-              ></div>
-            </button>
+              title={`${index + 1}. ${question.frontmatter.title}`}
+              content={dangerouslySetInnerHTML={{ __html: question.html }}}
+            />
           ))}
         </div>
       </div>
