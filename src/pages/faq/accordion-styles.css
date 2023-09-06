@@ -54,6 +54,7 @@
   overflow: hidden;
   transition: max-height 0.6s ease;
   text-align: left;
+}
 
 /* Style Markdown headers */
 h1 {
@@ -78,5 +79,3 @@ h3 {
 }
 
 /* Add styles for other header levels (h4, h5, h6) as needed */
-
-}
