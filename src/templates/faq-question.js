@@ -18,7 +18,7 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) 
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
-              <PageContent className="content" content={content} />
+              <QuestionContent className="content" content={content} />
             </div>
           </div>
         </div>
