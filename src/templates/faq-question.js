@@ -9,6 +9,24 @@ import "../pages/faq/accordion-styles.css";
 export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) => {
   const QuestionContent = contentComponent || Content;
 
+
+  return (
+    <section className="section section--gradient">
+      <div className="container">
+        <div className="question-align">
+          <h4 className="question-style">
+            {title}
+          </h4>
+        </div>
+        <div>
+          <QuestionContent className="content" content={content} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
   return (
     <Layout>
       <div className="Faq">
