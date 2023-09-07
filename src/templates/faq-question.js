@@ -18,8 +18,8 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) 
             {title}
           </h4>
         </div>
-        <div>
-          <QuestionContent className="answer" content={content} />
+        <div className="answer">
+          <QuestionContent content={content} />
         </div>
       </div>
     </section>
