@@ -10,31 +10,17 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) 
   const QuestionContent = contentComponent || Content;
 
   return (
-    <Layout>
-      <div className="Faq">
-        <div>
-          {faq.map((question, index) => (
-            <button
-              key={question.id}
-              className={`question-section ${activeItems[index] ? 'active' : ''}`}
-              onClick={() => toggleAccordion(index)}
-            >
-              <div className="question-align">	  
-                <h4 className="question-style">
-                  {`${index + 1}. ${question.frontmatter.title}`}
-                </h4>
-              </div>
-              <div
-                ref={contentRefs[index]}
-                className={activeItems[index] ? `answer answer-divider` : `answer`}
-                dangerouslySetInnerHTML={{ __html: question.html }}
-              ></div>
-            </button>
-          ))}
+    <section className="Faq">
+      <div className="question-section">
+        <div className="question-align">
+          <h2 className="question-style">
+            {title}
+          </h2>
+          <QuestionContent className="answer" content={content} />
         </div>
       </div>
-    </Layout>
-  );
+    </section>
+  );	
 };
 
 FaqQuestionTemplate.propTypes = {
