@@ -11,13 +11,11 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) 
 
   return (
     <section className="Faq">
-      <div className="question-section">
-        <div className="question-align">
-          <h2 className="question-style">
-            {title}
-          </h2>
-          <QuestionContent className="answer" content={content} />
-        </div>
+      <div className="question-align">
+        <h2 className="question-style">
+          {title}
+        </h2>
+        <QuestionContent className="answer" content={content} />
       </div>
     </section>
   );	
