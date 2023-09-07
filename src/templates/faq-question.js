@@ -10,20 +10,30 @@ export const FaqQuestionTemplate = ({ title, content, contentComponent, tags }) 
   const QuestionContent = contentComponent || Content;
 
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <QuestionContent className="content" content={content} />
-            </div>
-          </div>
+    <Layout>
+      <div className="Faq">
+        <div>
+          {faq.map((question, index) => (
+            <button
+              key={question.id}
+              className={`question-section ${activeItems[index] ? 'active' : ''}`}
+              onClick={() => toggleAccordion(index)}
+            >
+              <div className="question-align">	  
+                <h4 className="question-style">
+                  {`${index + 1}. ${question.frontmatter.title}`}
+                </h4>
+              </div>
+              <div
+                ref={contentRefs[index]}
+                className={activeItems[index] ? `answer answer-divider` : `answer`}
+                dangerouslySetInnerHTML={{ __html: question.html }}
+              ></div>
+            </button>
+          ))}
         </div>
       </div>
-    </section>
+    </Layout>
   );
 };
 
