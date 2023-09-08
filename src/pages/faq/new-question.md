@@ -1,5 +1,5 @@
 ---
-templateKey: faq
+templateKey: faq-question
 title: New Question
 date: 2023-09-08T16:26:44.806Z
 tags:
